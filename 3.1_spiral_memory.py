@@ -1,7 +1,7 @@
 from typing import Dict, Tuple, List
 from math import ceil, sqrt
-# input = 347991
-input = 17
+input = 347991
+# input = 1024
 
 input_root = ceil(sqrt(input))
 starting_coordinate = input_root + 1 if input_root % 2 == 0 else input_root
@@ -15,7 +15,6 @@ isFound = False
 
 # move left
 for i in range(x, -x, -1):
-    print(current_value)
     if current_value == input:
         isFound = True
         break
@@ -25,7 +24,6 @@ for i in range(x, -x, -1):
 # move up
 if isFound == False:
     for i in range(y, -y, -1):
-        print(current_value)
         if current_value == input:
             isFound = True
             break
@@ -33,5 +31,24 @@ if isFound == False:
         current_value -= 1
 
 # move right
+if isFound == False:
+    for i in range(-x, x, -1):
+        if current_value == input:
+            isFound = True
+            break
+        x += 1
+        current_value -= 1
+
 # move down
+if isFound == False:
+    for i in range(-y, y, -1):
+        if current_value == input:
+            isFound = True
+            break
+        y += 1
+        current_value -= 1
+
+steps = abs(x) + abs(y)
+
 print("[" + str(x) + ", " + str(y) + "]")
+print(steps)
