@@ -1,7 +1,7 @@
-from typing import Dict, Tuple, List
+# from typing import Dict, Tuple, List
 from math import ceil, sqrt
-# input = 347991
-input = 59
+input = 347991
+# input = 305
 
 def sum_surrounding_cells(x, y, my_map):
     sum = 0
@@ -49,5 +49,10 @@ while(input >= current_value):
             y += 1
             current_value = sum_surrounding_cells(x, y, my_map)
             my_map[(x,y)] = current_value
+    
+    steps_right += 2
+    steps_up += 2
+    steps_left += 2
+    steps_down += 2
 
 print(current_value)
